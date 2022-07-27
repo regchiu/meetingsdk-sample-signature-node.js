@@ -37,8 +37,11 @@ In terminal, run the following command to clone the repo:
 1. Add the following code to the `.env` file, and insert your Zoom SDK App's Key and Secret found on the App Credentials page in the Zoom App Marketplace:
 
    ```
-   ZOOM_SDK_KEY=SDK_KEY_HERE
-   ZOOM_SDK_SECRET=SDK_SECRET_HERE
+   ZOOM_SDK_KEY=
+   ZOOM_SDK_SECRET=
+   ZOOM_OAUTH_CLIENT_ID=
+   ZOOM_OAUTH_CLIENT_SECRET=
+   ZOOM_OAUTH_REDIRECT_URL=
    ```
 
 1. Save and close `.env`.
@@ -136,6 +139,9 @@ If you cloned this repo, use the [Heroku CLI](https://devcenter.heroku.com/artic
 
    - `ZOOM_SDK_KEY` (Your Zoom SDK App Key, found on your Zoom SDK App Credentials page)
    - `ZOOM_SDK_SECRET` (Your Zoom SDK App Secret, found on your Zoom SDK App Credentials page)
+   - `ZOOM_OAUTH_CLIENT_ID` (Your Zoom App Oauth Client ID, found on your Zoom SDK App Credentials page)
+   - `ZOOM_OAUTH_CLIENT_SECRET` (Your Zoom App Oauth Client Secret, found on your Zoom SDK App Credentials page)
+   - `ZOOM_OAUTH_REDIRECT_URL` (Your Zoom App Oauth Redirect URL, found on your Zoom SDK App Credentials page)
 
 Now you can generate and [use your signature](#usage) via the deployed url Heroku provides.
 

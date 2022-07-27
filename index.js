@@ -15,9 +15,9 @@ app.options('*', cors())
 app.get('/', async (req, res) => {
   res.redirect(
     'https://zoom.us/oauth/authorize?response_type=code&client_id=' +
-      process.env.ZOOM_APP_CLIENT_ID +
+      process.env.ZOOM_OAUTH_CLIENT_ID +
       '&redirect_uri=' +
-      process.env.OAUTH_REDIRECT_URL
+      process.env.ZOOM_OAUTH_REDIRECT_URL
   )
 })
 
@@ -55,13 +55,13 @@ app.get('/access-token', async (req, res) => {
         params: {
           grant_type: 'authorization_code',
           code: req.query.code,
-          redirect_uri: process.env.OAUTH_REDIRECT_URL,
+          redirect_uri: process.env.ZOOM_OAUTH_REDIRECT_URL,
         },
         headers: {
           Authorization:
             'Basic ' +
             Buffer.from(
-              process.env.ZOOM_APP_CLIENT_ID + ':' + process.env.ZOOM_APP_CLIENT_SECRET
+              process.env.ZOOM_OAUTH_CLIENT_ID + ':' + process.env.ZOOM_OAUTH_CLIENT_SECRET
             ).toString('base64'),
         },
       }
@@ -86,7 +86,7 @@ app.get('/refresh-access-token', async (req, res) => {
           Authorization:
             'Basic ' +
             Buffer.from(
-              process.env.ZOOM_APP_CLIENT_ID + ':' + process.env.ZOOM_APP_CLIENT_SECRET
+              process.env.ZOOM_OAUTH_CLIENT_ID + ':' + process.env.ZOOM_OAUTH_CLIENT_SECRET
             ).toString('base64'),
         },
       }
